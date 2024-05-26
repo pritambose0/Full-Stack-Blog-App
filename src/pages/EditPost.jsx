@@ -11,7 +11,7 @@ function EditPost() {
     if (slug) {
       appwriteService.getPost(slug).then((post) => {
         if (post) {
-          setPosts(post);
+          setPost(post);
         }
       });
     } else {
@@ -21,9 +21,9 @@ function EditPost() {
 
   return post ? (
     <div className="py-8">
-        <Container>
-            <PostForm post={post} />
-        </Container>
+      <Container>
+        <PostForm post={post} />
+      </Container>
     </div>
   ) : null;
 }
