@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 function Home() {
   const userStatus = useSelector((state) => state.auth.status);
-  const userName = useSelector((state) => state.auth.userData.name);
-  // console.log(userStatus);
+  const user = useSelector((state) => state.auth.userData);
+  // console.log(userStatus.name);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
@@ -23,7 +23,7 @@ function Home() {
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
               <h1 className="text-2xl font-bold hover:text-gray-500">
-                {userStatus ? `Welcome ${userName}` : "Login to read posts"}
+                {userStatus ? `Welcome ${user.name}` : "Login to read posts"}
               </h1>
             </div>
           </div>
@@ -34,7 +34,7 @@ function Home() {
   return (
     <div className="w-full py-5 flex flex-col items-center gap-5">
       <h1 className="text-2xl font-bold hover:text-gray-500">
-        {userStatus ? `Welcome ${userName}` : "Login to read posts"}
+        {userStatus ? `Welcome ${user.name}` : "Login to read posts"}
       </h1>
       <Container>
         <div className="flex flex-wrap">
