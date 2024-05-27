@@ -10,6 +10,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [loader, setLoader] = useState(true);
   // console.log(userStatus.name);
+
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
@@ -35,20 +36,27 @@ function Home() {
         </div>
       ) : (
         <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-          <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
-            {userStatus && `Welcome ${user.name}`}
+          <h1 className="text-2xl p-10 font-bold inline-block">
+            {`Welcome ${user.name}`}
           </h1>
+          {posts === 0 && (
+            <h1 className="text-2xl p-10 font-bold inline-block">
+              No posts available{" "}
+              <span className="text-textHover">
+                <Link to="/add-post">Create post</Link>
+              </span>
+            </h1>
+          )}
           <Container>
             <div className="flex flex-col md:flex-row flex-wrap mb-10">
-              {userStatus &&
-                posts.map((post) => (
-                  <div
-                    key={post.$id}
-                    className="p-2 w-1/4 hover:scale-105 transition duration-300"
-                  >
-                    <PostCard {...post} />
-                  </div>
-                ))}
+              {posts?.map((post) => (
+                <div
+                  key={post.$id}
+                  className="p-2 w-1/4 hover:scale-105 transition duration-300"
+                >
+                  <PostCard {...post} />
+                </div>
+              ))}
             </div>
           </Container>
         </div>
