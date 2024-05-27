@@ -18,9 +18,9 @@ function AllPosts() {
   // console.log(posts);
   return !loader ? (
     <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-      <h1 className="text-2xl p-10 font-bold inline-block">
+      <h1 className="text-2xl p-10 font-bold inline-block mt-10">
         No posts available{" "}
-        <span className="text-textHover">
+        <span className="text-textHover inline-block">
           <Link to="/add-post">Create post</Link>
         </span>
       </h1>
