@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
 import { Container, PostCard } from "../components";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Home() {
   const userStatus = useSelector((state) => state.auth.status);
   const user = useSelector((state) => state.auth.userData);
-  // console.log(userStatus.name);
   const [posts, setPosts] = useState([]);
+  // console.log(userStatus.name);
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
@@ -18,12 +19,12 @@ function Home() {
 
   if (posts.length === 0) {
     return (
-      <div className="w-full py-8 mt-4 text-center">
+      <div className="w-full h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
         <Container>
-          <div className="flex flex-wrap">
+          <div className="flex items-center justify-center flex-wrap">
             <div className="p-2 w-full">
-              <h1 className="text-2xl font-bold hover:text-gray-500">
-                {userStatus ? `Welcome ${user.name}` : "Login to read posts"}
+              <h1 className="text-2xl font-bold inline-block hover:text-textHover transition duration-200 cursor-pointer">
+                <Link to="/login">Login to read Posts</Link>
               </h1>
             </div>
           </div>
@@ -32,23 +33,21 @@ function Home() {
     );
   }
   return (
-    <div className="w-full py-5 flex flex-col items-center gap-5">
-      <h1 className="text-2xl font-bold hover:text-gray-500">
-        {userStatus ? `Welcome ${user.name}` : "Login to read posts"}
+    <div className="w-full h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
+      <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+        {userStatus && `Welcome ${user.name}`}
       </h1>
       <Container>
         <div className="flex flex-wrap">
-          {userStatus ? (
+          {userStatus &&
             posts.map((post) => (
-              <div key={post.$id} className="p-2 w-1/4">
+              <div
+                key={post.$id}
+                className="p-2 w-1/4 hover:scale-105 transition duration-300"
+              >
                 <PostCard {...post} />
               </div>
-            ))
-          ) : (
-            <h1 className="text-2xl font-bold hover:text-gray-500 mx-auto">
-              Login to read posts
-            </h1>
-          )}
+            ))}
         </div>
       </Container>
     </div>

@@ -6,16 +6,16 @@ const Input = React.forwardRef(function Input(
 ) {
   const id = useId();
   return (
-    <div className="w-full">
+    <div className="w-full text-textColor text-sm">
       {label && (
-        <label className="block mb-1" htmlFor={id}>
+        <label className="block mb-2 text-sm font-medium" htmlFor={id}>
           {label}
         </label>
       )}
 
       <input
         type={type}
-        className={`px-3 py-2 rounded-lg outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${className}`}
+        className={`px-3 py-2 rounded-lg outline-none duration-200 border bg-transparent w-full ${className}`}
         ref={ref}
         {...props}
         id={id}

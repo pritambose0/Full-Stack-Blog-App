@@ -13,9 +13,9 @@ function AllPosts() {
   }, []);
   // console.log(posts);
   return (
-    <div className="w-full py-8">
+    <div className="w-full h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap pt-10">
           {posts?.map((post) => (
             <div key={post.$id} className="p-2 w-1/4">
               <PostCard {...post} />

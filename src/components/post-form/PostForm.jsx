@@ -77,7 +77,10 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form
+      onSubmit={handleSubmit(submit)}
+      className="w-full text-center flex flex-col sm:flex-row items-center md:items-start gap-5 justify-center bg-bgColor rounded-xl p-2 sm:p-10 text-textColor"
+    >
       <div className="w-2/3 px-2">
         <Input
           label="Title :"
@@ -123,7 +126,7 @@ export default function PostForm({ post }) {
         <Select
           options={["active", "inactive"]}
           label="Status"
-          className="mb-4"
+          className="mb-4 "
           {...register("status", { required: true })}
         />
         <Button

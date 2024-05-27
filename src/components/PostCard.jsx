@@ -10,11 +10,11 @@ function PostCard({ $id, title, featuredImage }) {
   // console.log($id, title, featuredImage);
   return (
     <Link to={`/post/${$id}`}>
-      <div className="w-full bg-gray-100 rounded-xl p-4">
+      <div className="w-full bg-bgColor rounded-xl p-3 border border-gray-400">
         <div className="w-full justify-center mb-4">
-          <img src={imageUrl} alt={title} className="rounded-xl" />
+          <img src={imageUrl} alt={title} className="rounded-md" />
         </div>
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-lg font-semibold">{title}</h2>
       </div>
     </Link>
   );
