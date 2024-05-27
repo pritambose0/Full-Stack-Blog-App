@@ -33,7 +33,7 @@ function Post() {
   };
 
   return post ? (
-    <div className="py-8">
+    <div className="py-8 w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
           <img
@@ -61,7 +61,9 @@ function Post() {
         <div className="browser-css">{parse(post.content)}</div>
       </Container>
     </div>
-  ) : null;
+  ) : (
+    <div className="text-xl p-10 font-semibold h-[80vh]">Loading...</div>
+  );
 }
 
 export default Post;

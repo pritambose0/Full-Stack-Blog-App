@@ -19,7 +19,7 @@ function Home() {
 
   if (posts.length === 0) {
     return (
-      <div className="w-full h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+      <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
         <Container>
           <div className="flex items-center justify-center flex-wrap">
             <div className="p-2 w-full">
@@ -33,12 +33,12 @@ function Home() {
     );
   }
   return (
-    <div className="w-full h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
+    <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
       <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
         {userStatus && `Welcome ${user.name}`}
       </h1>
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex flex-col md:flex-row flex-wrap mb-10">
           {userStatus &&
             posts.map((post) => (
               <div

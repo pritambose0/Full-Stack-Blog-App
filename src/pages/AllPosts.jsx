@@ -12,10 +12,10 @@ function AllPosts() {
     });
   }, []);
   // console.log(posts);
-  return (
-    <div className="w-full h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
+  return posts ? (
+    <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
       <Container>
-        <div className="flex flex-wrap pt-10">
+        <div className="flex flex-col md:flex-row py-10">
           {posts?.map((post) => (
             <div key={post.$id} className="p-2 w-1/4">
               <PostCard {...post} />
@@ -24,6 +24,8 @@ function AllPosts() {
         </div>
       </Container>
     </div>
+  ) : (
+    <div className="text-xl">Loading...</div>
   );
 }
 
