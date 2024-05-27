@@ -14,6 +14,7 @@ function EditPost() {
         if (post) {
           setPost(post);
         }
+        setLoader(false);
       });
     } else {
       navigate("/");
