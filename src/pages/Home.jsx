@@ -23,28 +23,37 @@ function Home() {
         <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
           <Container>
             <div className="flex items-center justify-center flex-wrap">
-              <div className="p-2 w-full">
-                <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+              <div className="p-2 w-full flex flex-col gap-12">
+                <h1 className="text-2xl p-10 font-bold inline-block">
                   {userStatus && `Welcome ${user.name}`}
+                </h1>
+
+                <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+                  Loading...
                 </h1>
               </div>
             </div>
           </Container>
         </div>
       ) : (
-        <Container>
-          <div className="flex flex-col md:flex-row flex-wrap mb-10">
-            {userStatus &&
-              posts.map((post) => (
-                <div
-                  key={post.$id}
-                  className="p-2 w-1/4 hover:scale-105 transition duration-300"
-                >
-                  <PostCard {...post} />
-                </div>
-              ))}
-          </div>
-        </Container>
+        <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
+          <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+            {userStatus && `Welcome ${user.name}`}
+          </h1>
+          <Container>
+            <div className="flex flex-col md:flex-row flex-wrap mb-10">
+              {userStatus &&
+                posts.map((post) => (
+                  <div
+                    key={post.$id}
+                    className="p-2 w-1/4 hover:scale-105 transition duration-300"
+                  >
+                    <PostCard {...post} />
+                  </div>
+                ))}
+            </div>
+          </Container>
+        </div>
       )}
     </>
   ) : (
