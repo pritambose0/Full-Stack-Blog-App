@@ -17,8 +17,38 @@ function Home() {
     });
   }, []);
 
-  if (posts.length === 0) {
-    return (
+  return userStatus ? (
+    <>
+      {posts.length === 0 ? (
+        <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+          <Container>
+            <div className="flex items-center justify-center flex-wrap">
+              <div className="p-2 w-full">
+                <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+                  {userStatus && `Welcome ${user.name}`}
+                </h1>
+              </div>
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <Container>
+          <div className="flex flex-col md:flex-row flex-wrap mb-10">
+            {userStatus &&
+              posts.map((post) => (
+                <div
+                  key={post.$id}
+                  className="p-2 w-1/4 hover:scale-105 transition duration-300"
+                >
+                  <PostCard {...post} />
+                </div>
+              ))}
+          </div>
+        </Container>
+      )}
+    </>
+  ) : (
+    <>
       <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
         <Container>
           <div className="flex items-center justify-center flex-wrap">
@@ -30,28 +60,45 @@ function Home() {
           </div>
         </Container>
       </div>
-    );
-  }
-  return (
-    <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-      <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
-        {userStatus && `Welcome ${user.name}`}
-      </h1>
-      <Container>
-        <div className="flex flex-col md:flex-row flex-wrap mb-10">
-          {userStatus &&
-            posts.map((post) => (
-              <div
-                key={post.$id}
-                className="p-2 w-1/4 hover:scale-105 transition duration-300"
-              >
-                <PostCard {...post} />
-              </div>
-            ))}
-        </div>
-      </Container>
-    </div>
+    </>
   );
+  return;
+
+  // if (posts.length === 0) {
+  //   return (
+  //     <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+  //       <Container>
+  //         <div className="flex items-center justify-center flex-wrap">
+  //           <div className="p-2 w-full">
+  //             <h1 className="text-2xl font-bold inline-block hover:text-textHover transition duration-200 cursor-pointer">
+  //               <Link to="/login">Login to read Posts</Link>
+  //             </h1>
+  //           </div>
+  //         </div>
+  //       </Container>
+  //     </div>
+  //   );
+  // }
+  // return (
+  //   <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
+  //     <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+  //       {userStatus && `Welcome ${user.name}`}
+  //     </h1>
+  //     <Container>
+  //       <div className="flex flex-col md:flex-row flex-wrap mb-10">
+  //         {userStatus &&
+  //           posts.map((post) => (
+  //             <div
+  //               key={post.$id}
+  //               className="p-2 w-1/4 hover:scale-105 transition duration-300"
+  //             >
+  //               <PostCard {...post} />
+  //             </div>
+  //           ))}
+  //       </div>
+  //     </Container>
+  //   </div>
+  // );
 }
 
 export default Home;
