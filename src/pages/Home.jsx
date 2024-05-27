@@ -8,26 +8,24 @@ function Home() {
   const userStatus = useSelector((state) => state.auth.status);
   const user = useSelector((state) => state.auth.userData);
   const [posts, setPosts] = useState([]);
+  const [loader, setLoader] = useState(true);
   // console.log(userStatus.name);
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
+      setLoader(false);
     });
   }, []);
 
   return userStatus ? (
     <>
-      {posts.length === 0 ? (
+      {loader ? (
         <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
           <Container>
             <div className="flex items-center justify-center flex-wrap">
-              <div className="p-2 w-full flex flex-col gap-12">
-                <h1 className="text-2xl p-10 font-bold inline-block">
-                  {userStatus && `Welcome ${user.name}`}
-                </h1>
-
+              <div className="p-2 w-full">
                 <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
                   Loading...
                 </h1>

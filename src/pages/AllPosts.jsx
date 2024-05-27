@@ -3,16 +3,17 @@ import { Container, PostCard } from "../components/index";
 import appwriteService from "../appwrite/config";
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     appwriteService.getPosts([]).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
+      setLoader(false);
     });
   }, []);
   // console.log(posts);
-  return posts ? (
+  return !loader ? (
     <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
       <Container>
         <div className="flex flex-col md:flex-row py-10">
@@ -25,7 +26,7 @@ function AllPosts() {
       </Container>
     </div>
   ) : (
-    <div className="text-xl">Loading...</div>
+    <div className="text-xl p-10 font-semibold h-[80vh]">Loading...</div>
   );
 }
 
