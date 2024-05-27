@@ -10,7 +10,7 @@ function PostCard({ $id, title, featuredImage }) {
   // console.log($id, title, featuredImage);
   return (
     <Link to={`/post/${$id}`}>
-      <div className="w-full bg-bgColor rounded-xl p-3 border border-gray-400">
+      <div className="w-64 bg-bgColor rounded-xl p-3 border border-gray-400 ">
         <div className="w-full justify-center mb-4">
           <img src={imageUrl} alt={title} className="rounded-md" />
         </div>
