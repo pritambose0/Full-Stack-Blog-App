@@ -39,12 +39,14 @@ function Home() {
           <h1 className="text-2xl p-10 font-bold inline-block">
             {`Welcome ${user.name}`}
           </h1>
-          <h1 className="text-2xl p-10 font-bold inline-block mt-5">
-            No posts available{" "}
-            <span className="text-textHover inline-block">
-              <Link to="/add-post">Create post</Link>
-            </span>
-          </h1>
+          {posts === 0 && (
+            <h1 className="text-2xl p-10 font-bold inline-block mt-5">
+              No posts available{" "}
+              <span className="text-textHover inline-block">
+                <Link to="/add-post">Create post</Link>
+              </span>
+            </h1>
+          )}
 
           <Container>
             <div className="flex flex-col md:flex-row flex-wrap mb-10">

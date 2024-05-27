@@ -18,12 +18,14 @@ function AllPosts() {
   // console.log(posts);
   return !loader ? (
     <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-      <h1 className="text-2xl p-10 font-bold inline-block mt-10">
-        No posts available{" "}
-        <span className="text-textHover inline-block">
-          <Link to="/add-post">Create post</Link>
-        </span>
-      </h1>
+      {posts === 0 && (
+        <h1 className="text-2xl p-10 font-bold inline-block mt-10">
+          No posts available{" "}
+          <span className="text-textHover inline-block">
+            <Link to="/add-post">Create post</Link>
+          </span>
+        </h1>
+      )}
       <Container>
         <div className="flex flex-col md:flex-row py-10">
           {posts?.map((post) => (
