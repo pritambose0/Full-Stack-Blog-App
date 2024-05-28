@@ -1,7 +1,6 @@
-/home        /
-/all-posts   /all-posts
-/login       /login
-/signup      /signup
-/add-post    /add-post
-/edit-post/  /edit-post/
-/post/       /post/
+/home       /index.html  200
+/post       /index.html  200
+/edit-post  /index.html  200
+/all-posts  /index.html  200
+
+/*    /index.html   200
