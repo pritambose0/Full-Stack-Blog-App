@@ -21,7 +21,6 @@ function App() {
       })
       .finally(() => setLoading(false));
   }, []);
-
   return !loading ? (
     <div className="flex flex-wrap content-between bg-bgLight w-full">
       <div className="w-full">

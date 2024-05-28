@@ -24,15 +24,9 @@ function Home() {
     <>
       {loader ? (
         <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
-          <Container>
-            <div className="flex items-center justify-center flex-wrap">
-              <div className="p-2 w-full">
-                <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
-                  Loading...
-                </h1>
-              </div>
-            </div>
-          </Container>
+          <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+            Loading...
+          </h1>
         </div>
       ) : (
         <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
@@ -49,11 +43,11 @@ function Home() {
           )}
 
           <Container>
-            <div className="flex flex-col md:flex-row flex-wrap mb-10">
+            <div className="grid justify-center content-center sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-0 mb-10 mt-0 sm:mt-5">
               {posts?.map((post) => (
                 <div
                   key={post.$id}
-                  className="p-2 w-1/4 hover:scale-105 transition duration-300"
+                  className="hover:scale-105 transition duration-300"
                 >
                   <PostCard {...post} />
                 </div>

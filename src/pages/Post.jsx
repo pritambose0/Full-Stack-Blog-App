@@ -33,36 +33,38 @@ function Post() {
   };
 
   return post ? (
-    <div className="py-8 w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-      <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
-            alt={post.title}
-            className="rounded-xl"
-          />
+    <div className="py-8 w-full min-h-[80vh] flex flex-col items-center justify-center bg-bgLight text-textColor">
+      <div className="h-[60vh] w-[90vh] flex justify-center mb-4 border rounded-xl p-2">
+        <img
+          src={appwriteService.getFilePreview(post.featuredImage)}
+          alt={post.title}
+          className="rounded-xl object-center object-fill"
+        />
 
-          {isAuthor && (
-            <div className="absolute right-6 top-6">
-              <Link to={`/edit-post/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
-                  Edit
-                </Button>
-              </Link>
-              <Button bgColor="bg-red-500" onClick={deletePost}>
-                Delete
+        {isAuthor && (
+          <div className="absolute right-6 top-6">
+            <Link to={`/edit-post/${post.$id}`}>
+              <Button bgColor="bg-green-500" className="mr-3">
+                Edit
               </Button>
-            </div>
-          )}
-        </div>
-        <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
-        </div>
-        <div className="browser-css">{parse(post.content)}</div>
-      </Container>
+            </Link>
+            <Button bgColor="bg-red-500" onClick={deletePost}>
+              Delete
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">{post.title}</h1>
+      </div>
+      <div className="browser-css">{parse(post.content)}</div>
     </div>
   ) : (
-    <div className="text-xl p-10 font-semibold h-[80vh]">Loading...</div>
+    <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+      <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+        Loading...
+      </h1>
+    </div>
   );
 }
 
