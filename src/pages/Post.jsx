@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
-import { Button, Container } from "../components";
+import { Button } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 
@@ -58,6 +58,10 @@ function Post() {
         <h1 className="text-2xl font-bold">{post.title}</h1>
       </div>
       <div className="browser-css">{parse(post.content)}</div>
+
+      <Button className="mt-10">
+        <Link to="/">Back</Link>
+      </Button>
     </div>
   ) : (
     <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">

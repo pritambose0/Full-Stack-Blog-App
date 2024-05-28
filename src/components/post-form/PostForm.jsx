@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "../index";
 import appwriteService from "../../appwrite/config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function PostForm({ post }) {
@@ -79,7 +79,7 @@ export default function PostForm({ post }) {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="w-[90%] text-center flex flex-col md:flex-row items-center md:items-start gap-24 justify-center bg-bgColor rounded-xl p-2 sm:p-10 text-textColor min-h-[80vh] border border-gray-500 py-6"
+      className="w-[90%] text-center flex flex-col md:flex-row items-center md:items-start gap-24 justify-center bg-bgColor rounded-xl p-2 sm:p-10 text-textColor min-h-[80vh] border border-gray-500 py-6 relative"
     >
       <div className="md:w-2/3 px-2 text-start">
         <Input
@@ -135,6 +135,9 @@ export default function PostForm({ post }) {
           className="w-full"
         >
           {post ? "Update" : "Submit"}
+        </Button>
+        <Button className="mt-5 block mx-auto">
+          <Link to="/">Back</Link>
         </Button>
       </div>
     </form>
