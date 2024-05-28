@@ -24,10 +24,8 @@ function EditPost() {
   return !loader ? (
     <>
       {post && (
-        <div className="py-8 w-full min-h-[80vh] text-center flex-col items-center justify-center bg-bgLight text-textColor">
-          <Container>
-            <PostForm post={post} />
-          </Container>
+        <div className="py-8 w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+          <PostForm post={post} />
         </div>
       )}
     </>
