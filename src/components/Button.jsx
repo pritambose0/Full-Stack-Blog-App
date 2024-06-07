@@ -13,7 +13,7 @@ function Button({
     <button
       className={`px-4 py-2 rounded-lg ${bgColor} ${textColor} ${className} hover:bg-blue-700 transition duration-200 font-medium`}
       {...props}
-      onClick={onclick}
+      // onClick={onclick}
     >
       {children}
     </button>
