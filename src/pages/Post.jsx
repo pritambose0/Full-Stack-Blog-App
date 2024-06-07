@@ -3,30 +3,40 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
 import { Button } from "../components";
 import parse from "html-react-parser";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removePost, fetchPosts } from "../store/postSlice";
 
 function Post() {
-  const [post, setPost] = useState(null);
+  // const [post, setPost] = useState(null);
   const { slug } = useParams();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
-
+  const posts = useSelector((state) => state.post.posts);
+  const post = posts.find((post) => post.$id === slug);
   const isAuthor = post && userData ? post.userId === userData.$id : false;
-
+  const error = useSelector((state) => state.error);
+  // console.log(post);
   useEffect(() => {
-    if (slug) {
-      appwriteService.getPost(slug).then((post) => {
-        if (post) setPost(post);
-        else navigate("/");
-      });
-    } else navigate("/");
-  }, [slug, navigate]);
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
+  if (error) {
+    return (
+      <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-red-500">
+        <h1 className="text-2xl p-10 font-bold inline-block transition duration-200">
+          {`Error: ${error}`}
+        </h1>
+      </div>
+    );
+  }
 
   const deletePost = () => {
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);
+        dispatch(removePost(post.$id));
+        console.log(post);
         navigate("/");
       }
     });
@@ -34,7 +44,7 @@ function Post() {
 
   return post ? (
     <div className="py-8 w-full min-h-[80vh] flex flex-col items-center justify-center bg-bgLight text-textColor max-w-7xl mx-auto px-4">
-      <div className="w-full sm:w-[80%] h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] lg:w-[60%] relative flex justify-center mb-4 border rounded-xl p-2">
+      <div className="w-full sm:w-[80%] h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] lg:w-[60%] relative flex justify-center mb-4 border rounded-xl p-2 mt-10">
         <img
           src={appwriteService.getFilePreview(post.featuredImage)}
           alt={post.title}
@@ -59,7 +69,7 @@ function Post() {
       </div>
       <div className="browser-css">{parse(post.content)}</div>
 
-      <Button className="mt-10">
+      <Button className="mt-5 block mx-auto w-24 sm:w-32 md:w-48 absolute top-16 right-10">
         <Link to="/">Back</Link>
       </Button>
     </div>

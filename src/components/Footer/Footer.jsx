@@ -15,6 +15,7 @@ function Footer() {
             &copy; 2024{" "}
             <Link
               to="https://pritambose.netlify.app"
+              target="_blank"
               className="text-textHover"
             >
               Pritam Bose

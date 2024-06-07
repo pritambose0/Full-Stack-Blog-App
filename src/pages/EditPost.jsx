@@ -1,38 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PostForm } from "../components";
-import appwriteService from "../appwrite/config";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function EditPost() {
-  const [post, setPost] = useState(null);
-  const [loader, setLoader] = useState(true);
   const { slug } = useParams();
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (slug) {
-      appwriteService.getPost(slug).then((post) => {
-        if (post) {
-          setPost(post);
-        }
-        setLoader(false);
-      });
-    } else {
-      navigate("/");
-    }
-  }, [slug, navigate]);
+  const posts = useSelector((state) => state.post.posts);
+  const postSlug = posts.find((post) => post.$id === slug);
+  // console.log(posta);
 
-  return !loader ? (
+  return postSlug ? (
     <>
-      {post && (
-        <div className="py-8 w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
-          <PostForm post={post} />
-        </div>
-      )}
+      <div className="py-8 w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
+        <PostForm post={postSlug} />
+      </div>
     </>
   ) : (
     <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
       <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
-        Loading...
+        No post found
       </h1>
     </div>
   );
