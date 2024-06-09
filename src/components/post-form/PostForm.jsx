@@ -5,6 +5,7 @@ import appwriteService from "../../appwrite/config";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, updatePost } from "../../store/postSlice";
+import Resizer from "react-image-file-resizer";
 
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -24,9 +25,25 @@ export default function PostForm({ post }) {
   // console.log(userData.$id);
   const submit = async (data) => {
     if (post) {
-      const file = data.image[0]
-        ? await appwriteService.uploadFile(data.image[0])
-        : null;
+      // const file = data.image[0]
+      //   ? await appwriteService.uploadFile(data.image[0])
+      //   : null;
+
+      const uploadedImg = data.image[0];
+      const resizedFile = await new Promise((resolve, reject) => {
+        Resizer.imageFileResizer(
+          uploadedImg,
+          8000,
+          8000,
+          "JPEG",
+          70,
+          0,
+          (resizedImage) => resolve(resizedImage),
+          "file"
+        );
+      });
+
+      const file = await appwriteService.uploadFile(resizedFile);
 
       if (file) {
         appwriteService.deleteFile(post.featuredImage);
@@ -43,7 +60,21 @@ export default function PostForm({ post }) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
-      const file = await appwriteService.uploadFile(data.image[0]);
+      const uploadedImg = data.image[0];
+      const resizedFile = await new Promise((resolve, reject) => {
+        Resizer.imageFileResizer(
+          uploadedImg,
+          8000,
+          8000,
+          "JPEG",
+          70,
+          0,
+          (resizedImage) => resolve(resizedImage),
+          "file"
+        );
+      });
+
+      const file = await appwriteService.uploadFile(resizedFile);
 
       if (file) {
         const fileId = file.$id;

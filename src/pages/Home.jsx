@@ -41,15 +41,6 @@ function Home() {
             {`Welcome ${user.name}`}
           </h1>
 
-          {posts && posts.length === 0 && (
-            <h1 className="text-2xl p-10 font-bold flex flex-col gap-3 mt-5">
-              No posts available{" "}
-              <span className="text-textHover inline-block">
-                <Link to="/add-post">Create post</Link>
-              </span>
-            </h1>
-          )}
-
           <Container>
             <div className="grid justify-center content-center sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-0 mb-10 mt-0 sm:mt-5">
               {posts?.map((post) => (
@@ -62,6 +53,15 @@ function Home() {
               ))}
             </div>
           </Container>
+
+          {posts && posts && posts.length === 0 && (
+            <h1 className="text-2xl p-10 font-bold flex flex-col gap-3 mt-5">
+              No posts available{" "}
+              <span className="text-textHover inline-block">
+                <Link to="/add-post">Create post</Link>
+              </span>
+            </h1>
+          )}
         </div>
       )}
     </>

@@ -36,7 +36,7 @@ function Post() {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);
         dispatch(removePost(post.$id));
-        console.log(post);
+        // console.log(post);
         navigate("/");
       }
     });

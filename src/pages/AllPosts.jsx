@@ -21,7 +21,7 @@ function AllPosts() {
 
   const posts = useSelector((state) => state.post.posts);
   const error = useSelector((state) => state.error);
-
+  console.log(posts);
   if (error) {
     return (
       <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-red-500">
@@ -34,14 +34,6 @@ function AllPosts() {
 
   return (
     <div className="w-full min-h-[65vh] text-center flex items-center justify-center bg-bgLight text-textColor my-10">
-      {posts.length === 0 && (
-        <h1 className="text-2xl p-10 font-bold mt-10 flex flex-col gap-3">
-          No posts available{" "}
-          <p className="text-textHover">
-            <Link to="/add-post">Create post</Link>
-          </p>
-        </h1>
-      )}
       <Container>
         <div className="grid justify-center content-center sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-0">
           {posts?.map((post) => (
@@ -54,6 +46,15 @@ function AllPosts() {
           ))}
         </div>
       </Container>
+
+      {posts && posts.length === 0 && (
+        <h1 className="text-2xl p-10 font-bold mt-10 flex flex-col gap-3">
+          No posts available{" "}
+          <p className="text-textHover">
+            <Link to="/add-post">Create post</Link>
+          </p>
+        </h1>
+      )}
     </div>
   );
 }
