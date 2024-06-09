@@ -36,7 +36,7 @@ export default function PostForm({ post }) {
           8000,
           8000,
           "JPEG",
-          70,
+          50,
           0,
           (resizedImage) => resolve(resizedImage),
           "file"
@@ -67,7 +67,7 @@ export default function PostForm({ post }) {
           8000,
           8000,
           "JPEG",
-          70,
+          50,
           0,
           (resizedImage) => resolve(resizedImage),
           "file"
