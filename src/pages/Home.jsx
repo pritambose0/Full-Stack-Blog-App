@@ -54,7 +54,7 @@ function Home() {
             </div>
           </Container>
 
-          {posts && posts && posts.length === 0 && (
+          {!posts && (
             <h1 className="text-2xl p-10 font-bold flex flex-col gap-3 mt-5">
               No posts available{" "}
               <span className="text-textHover inline-block">

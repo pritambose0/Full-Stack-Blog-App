@@ -47,7 +47,7 @@ function AllPosts() {
         </div>
       </Container>
 
-      {posts && posts.length === 0 && (
+      {!posts && (
         <h1 className="text-2xl p-10 font-bold mt-10 flex flex-col gap-3">
           No posts available{" "}
           <p className="text-textHover">
