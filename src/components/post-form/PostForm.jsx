@@ -33,8 +33,8 @@ export default function PostForm({ post }) {
       const resizedFile = await new Promise((resolve, reject) => {
         Resizer.imageFileResizer(
           uploadedImg,
-          8000,
-          8000,
+          1280,
+          720,
           "JPEG",
           50,
           0,

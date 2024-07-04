@@ -41,7 +41,7 @@ function App() {
       <div className="w-full min-h-screen text-center flex items-center justify-center bg-bgLight text-textColor">
         <svg
           aria-hidden="true"
-          class="w-10 h-10 text-gray-200 animate-spin fill-blue-700"
+          className="w-10 h-10 text-gray-200 animate-spin fill-blue-700"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,6 @@ function App() {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
       </div>
     </>
   );

@@ -26,8 +26,8 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full bg-bgLight min-h-[80vh] text-textColor px-5">
-      <div className="mx-auto max-w-xl bg-bgColor rounded-xl p-8">
+    <div className="flex items-center justify-center w-full min-h-[80vh] text-textColor px-5">
+      <div className="mx-auto max-w-xl bg-secondary rounded-xl p-8">
         <div className="mb-2 flex justify-center ">
           <span className="inline-block w-full max-w-[100px] text-center">
             <Logo width="100%" />

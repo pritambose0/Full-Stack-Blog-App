@@ -3,6 +3,13 @@ import { Container, Logo, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faCross,
+  faHamburger,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
@@ -42,22 +49,22 @@ function Header() {
     },
   ];
   return (
-    <header className="py-5 flex items-center justify-between bg-bgColor text-textColor w-full relative">
-      <Container>
-        <nav className="flex items-center">
+    <header className="py-8 w-full">
+      <nav className="flex items-center justify-between text-textColor mx-8 lg:mx-16 relative">
+        <div className="flex items-center justify-between w-full">
           <div className="mr-4">
             <Link to="/">
               <Logo width="70px" />
             </Link>
           </div>
 
-          <ul className="hidden md:flex ml-auto items-center">
+          <ul className="hidden lg:flex ml-auto items-center">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-block font-semibold mx-6 duration-200 hover:text-textHover rounded-full"
+                    className="inline-block font-medium mx-6 duration-200 hover:text-primary rounded-full"
                   >
                     {item.name}
                   </button>
@@ -71,49 +78,20 @@ function Header() {
               </li>
             )}
           </ul>
-        </nav>
-      </Container>
+        </div>
 
-      {/* MOBILE MENU */}
+        {/* MOBILE MENU */}
 
-      {isOpen ? (
-        <button onClick={toggleMenu} className="md:hidden mr-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-textColor hover:text-textHover transition duration-200"
-          >
-            <path d="M18 6l-12 12"></path>
-            <path d="M6 6l12 12"></path>
-          </svg>
-        </button>
-      ) : (
-        <button onClick={toggleMenu} className="md:hidden mr-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-textColor hover:text-textHover transition duration-200"
-          >
-            <path d="M4 6l16 0"></path>
-            <path d="M4 12l16 0"></path>
-            <path d="M4 18l16 0"></path>
-          </svg>
-        </button>
-      )}
+        {isOpen ? (
+          <button onClick={toggleMenu} className="lg:hidden">
+            <FontAwesomeIcon icon={faX} className="text-[1.4rem]" />
+          </button>
+        ) : (
+          <button onClick={toggleMenu} className="lg:hidden">
+            <FontAwesomeIcon icon={faBars} className="text-[1.5rem]" />
+          </button>
+        )}
+      </nav>
 
       {isOpen && (
         <ul className="flex flex-col gap-8 justify-start pt-[30%] mx-auto items-center h-screen w-[70%] fixed top-0 bg-gray-800 z-50">

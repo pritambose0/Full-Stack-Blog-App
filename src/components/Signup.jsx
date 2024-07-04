@@ -27,8 +27,8 @@ function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-bgLight min-h-[90vh] text-textColor px-5">
-      <div className={`mx-auto max-w-xl bg-bgColor rounded-xl p-8`}>
+    <div className="flex items-center justify-center min-h-[90vh] text-textColor px-5">
+      <div className={`mx-auto max-w-xl bg-secondary rounded-xl p-8`}>
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px] text-center">
             <Logo width="100%" />

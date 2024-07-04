@@ -34,18 +34,15 @@ function AllPosts() {
 
   return (
     <div className="w-full min-h-[65vh] text-center flex items-center justify-center bg-bgLight text-textColor my-10">
-      <Container>
-        <div className="grid justify-center content-center sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-0">
+      <div className="mx-8 lg:mx-16">
+        <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 space-x-5 mb-10 mt-5">
           {posts?.map((post) => (
-            <div
-              key={post.$id}
-              className="hover:scale-105 transition duration-300"
-            >
+            <div key={post.$id}>
               <PostCard {...post} />
             </div>
           ))}
         </div>
-      </Container>
+      </div>
 
       {!posts && (
         <h1 className="text-2xl p-10 font-bold mt-10 flex flex-col gap-3">
