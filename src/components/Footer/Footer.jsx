@@ -7,7 +7,7 @@ function Footer() {
   return (
     <section className="w-full overflow-hidden py-7 bg-bgColor text-textColor border-t border-gray-500">
       <div className="flex h-full items-center justify-between px-12 mx-auto">
-        <div className="mb-4 inline-flex items-center">
+        <div className=" inline-flex items-center">
           <Logo width="100px" />
         </div>
         <div>
@@ -16,7 +16,7 @@ function Footer() {
             <Link
               to="https://pritambose.netlify.app"
               target="_blank"
-              className="text-textHover"
+              className="text-primary"
             >
               Pritam Bose
             </Link>

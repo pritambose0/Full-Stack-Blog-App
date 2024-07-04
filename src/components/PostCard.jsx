@@ -30,7 +30,7 @@ function PostCard({ $id, title, featuredImage, $createdAt }) {
             <p className="text-lg font-medium text-gray-400">{createdAt}</p>
           </div>
           <h2 className="text-2xl font-semibold">{title}</h2>
-          <div className="flex items-center gap-2 relative w-full">
+          <div className="flex items-center gap-2 relative w-full mb-5 sm:mb-0">
             <p>Read more</p>
             <FontAwesomeIcon
               icon={faGreaterThan}
