@@ -6,8 +6,8 @@ import Logo from "../Logo";
 function Footer() {
   return (
     <section className="w-full overflow-hidden py-5 bg-bgColor text-textColor border-t border-gray-500">
-      <div className="flex h-full items-center justify-between px-12 mx-auto">
-        <div className=" inline-flex items-center">
+      <div className="flex h-full items-center justify-between  mx-5 sm:mx-8 lg:mx-16">
+        <div className="inline-flex items-center">
           <Logo width="100px" />
         </div>
         <div>

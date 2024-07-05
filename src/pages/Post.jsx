@@ -44,7 +44,7 @@ function Post() {
 
   return post ? (
     <div className="mx-5 sm:mx-8 lg:mx-16">
-      <div className="my-10 flex flex-col items-center justify-center text-textColor">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center text-textColor">
         <div className="mb-10 text-start w-full">
           <h1 className="text-3xl font-semibold">{post.title}</h1>
         </div>
@@ -61,7 +61,7 @@ function Post() {
         </div>
 
         {isAuthor && (
-          <div className="w-full text-start mt-10">
+          <div className="w-full text-start my-10">
             <Link to={`/edit-post/${post.$id}`}>
               <Button bgColor="bg-primary hover:bg-blue-800" className="mr-3">
                 Edit
