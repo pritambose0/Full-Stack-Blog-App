@@ -74,7 +74,7 @@ function Post() {
     </div>
   ) : (
     <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">
-      <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
+      <h1 className="text-xl p-10 font-bold inline-block  transition duration-200">
         Loading...
       </h1>
     </div>

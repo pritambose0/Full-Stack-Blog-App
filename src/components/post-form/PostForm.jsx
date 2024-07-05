@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "../index";
 import appwriteService from "../../appwrite/config";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, updatePost } from "../../store/postSlice";
 import Resizer from "react-image-file-resizer";
@@ -186,10 +186,6 @@ export default function PostForm({ post }) {
             {post ? "Update" : "Submit"}
           </Button>
         )}
-
-        <Button className="mt-5 block mx-auto w-full">
-          <Link to="/">Back</Link>
-        </Button>
       </div>
     </form>
   );

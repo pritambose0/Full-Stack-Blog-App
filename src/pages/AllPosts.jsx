@@ -21,7 +21,7 @@ function AllPosts() {
 
   const posts = useSelector((state) => state.post.posts);
   const error = useSelector((state) => state.error);
-  console.log(posts);
+  // console.log(posts);
   if (error) {
     return (
       <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-red-500">
@@ -34,8 +34,8 @@ function AllPosts() {
 
   return (
     <div className="w-full min-h-[65vh] text-center flex items-center justify-center bg-bgLight text-textColor my-10">
-      <div className="mx-8 lg:mx-16">
-        <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 space-x-5 mb-10 mt-5">
+      <div className="mx-5 sm:mx-8 lg:mx-16">
+        <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
           {posts?.map((post) => (
             <div key={post.$id}>
               <PostCard {...post} />
