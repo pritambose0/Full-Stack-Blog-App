@@ -52,7 +52,7 @@ function Post() {
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
-            className="rounded-xl object-center object-cover h-full md:h-[80vh] w-full"
+            className="rounded-lg object-center object-cover h-full md:h-[80vh] w-full"
           />
         </div>
 
