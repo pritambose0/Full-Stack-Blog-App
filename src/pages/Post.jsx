@@ -56,9 +56,7 @@ function Post() {
           />
         </div>
 
-        <div className="browser-css text-xl font-medium w-full">
-          {parse(post.content)}
-        </div>
+        <div className="browser-css w-full">{parse(post.content)}</div>
 
         {isAuthor && (
           <div className="w-full text-start my-10">
