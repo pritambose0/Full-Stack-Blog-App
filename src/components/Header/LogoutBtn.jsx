@@ -16,7 +16,7 @@ function LogoutBtn({ className = "" }) {
 
   return (
     <button
-      className={`inline-block font-semibold mx-6 duration-200 hover:text-textHover rounded-full ${className}`}
+      className={`inline-block font-semibold mx-6 duration-200 hover:text-primary rounded-full ${className}`}
       onClick={logoutHandler}
     >
       Logout

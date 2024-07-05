@@ -43,35 +43,36 @@ function Post() {
   };
 
   return post ? (
-    <div className="py-8 w-full min-h-[80vh] flex flex-col items-center justify-center bg-bgLight text-textColor max-w-7xl mx-auto px-4">
-      <div className="w-full sm:w-[80%] h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] lg:w-[60%] relative flex justify-center mb-4 border rounded-xl p-2 mt-10">
-        <img
-          src={appwriteService.getFilePreview(post.featuredImage)}
-          alt={post.title}
-          className="rounded-xl object-center object-fill"
-        />
+    <div className="mx-5 sm:mx-8 lg:mx-16">
+      <div className="my-10 flex flex-col items-center justify-center text-textColor">
+        <div className="mb-10 text-start w-full">
+          <h1 className="text-3xl font-semibold">{post.title}</h1>
+        </div>
+        <div className="w-full items-center flex justify-center mb-4 rounded-xl">
+          <img
+            src={appwriteService.getFilePreview(post.featuredImage)}
+            alt={post.title}
+            className="rounded-xl object-center object-cover h-full md:h-[80vh] w-full"
+          />
+        </div>
+
+        <div className="browser-css text-xl font-medium w-full">
+          {parse(post.content)}
+        </div>
 
         {isAuthor && (
-          <div className="absolute right-6 top-6">
+          <div className="w-full text-start mt-10">
             <Link to={`/edit-post/${post.$id}`}>
-              <Button bgColor="bg-green-500" className="mr-3">
+              <Button bgColor="bg-primary hover:bg-blue-800" className="mr-3">
                 Edit
               </Button>
             </Link>
-            <Button bgColor="bg-red-500" onClick={deletePost}>
+            <Button bgColor="bg-red-500 hover:bg-red-700" onClick={deletePost}>
               Delete
             </Button>
           </div>
         )}
       </div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold">{post.title}</h1>
-      </div>
-      <div className="browser-css">{parse(post.content)}</div>
-
-      <Button className="mt-5 block mx-auto w-24 sm:w-32 md:w-48 absolute top-16 right-10">
-        <Link to="/">Back</Link>
-      </Button>
     </div>
   ) : (
     <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-textColor">

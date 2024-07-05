@@ -39,7 +39,7 @@ function Home() {
         </div>
       ) : (
         <div className="w-full min-h-[80vh] text-center flex-col items-center justify-center">
-          <div className="mx-8 lg:mx-16 py-5">
+          <div className="mx-5 sm:mx-8 lg:mx-16 py-5">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-5 md:gap-0 text-start relative">
               <h1 className="text-3xl lg:text-4xl font-bold ">{`Welcome ${user.name}`}</h1>
 
@@ -55,8 +55,8 @@ function Home() {
             </div>
           </div>
 
-          <div className="mx-8 lg:mx-16">
-            <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 space-x-5 mb-10 mt-5">
+          <div className="mx-5 sm:mx-8 lg:mx-16">
+            <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
               {posts?.map((post) => (
                 <div key={post.$id}>
                   <PostCard {...post} />

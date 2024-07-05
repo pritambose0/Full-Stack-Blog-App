@@ -11,7 +11,7 @@ function Button({
 }) {
   return (
     <button
-      className={`px-4 py-2 rounded-lg ${bgColor} ${textColor} ${className} hover:bg-blue-700 transition duration-200 font-medium`}
+      className={`px-[1.8rem] py-[0.65rem] rounded-lg ${bgColor} ${textColor} ${className} hover:scale-95 transition duration-300 font-medium`}
       {...props}
       // onClick={onclick}
     >

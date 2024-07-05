@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faCross,
-  faHamburger,
-  faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
@@ -50,7 +45,7 @@ function Header() {
   ];
   return (
     <header className="py-8 w-full">
-      <nav className="flex items-center justify-between text-textColor mx-8 lg:mx-16 relative">
+      <nav className="flex items-center justify-between text-textColor mx-5 sm:mx-8 lg:mx-16 relative">
         <div className="flex items-center justify-between w-full">
           <div className="mr-4">
             <Link to="/">
@@ -100,7 +95,7 @@ function Header() {
               <li key={item.name}>
                 <button
                   onClick={() => navigate(item.slug)}
-                  className="inline-block text-xl font-semibold mx-6 duration-200 hover:text-textHover rounded-full"
+                  className="inline-block text-xl font-semibold mx-6 duration-200 hover:text-primary rounded-full"
                 >
                   {item.name}
                 </button>
