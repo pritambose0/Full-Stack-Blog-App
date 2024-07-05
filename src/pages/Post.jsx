@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
 import { Button } from "../components";
@@ -23,7 +23,7 @@ function Post() {
 
   if (error) {
     return (
-      <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgLight text-red-500">
+      <div className="w-full min-h-[80vh] text-center flex items-center justify-center bg-bgColor text-red-500">
         <h1 className="text-2xl p-10 font-bold inline-block transition duration-200">
           {`Error: ${error}`}
         </h1>

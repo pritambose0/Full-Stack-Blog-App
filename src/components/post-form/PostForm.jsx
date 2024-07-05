@@ -30,20 +30,23 @@ export default function PostForm({ post }) {
       //   : null;
 
       const uploadedImg = data.image[0];
-      const resizedFile = await new Promise((resolve, reject) => {
-        Resizer.imageFileResizer(
-          uploadedImg,
-          1280,
-          720,
-          "JPEG",
-          50,
-          0,
-          (resizedImage) => resolve(resizedImage),
-          "file"
-        );
-      });
+      const resizedFile = uploadedImg
+        ? await new Promise((resolve, reject) => {
+            Resizer.imageFileResizer(
+              uploadedImg,
+              1280,
+              720,
+              "JPEG",
+              50,
+              0,
+              (resizedImage) => resolve(resizedImage),
+              "file"
+            );
+          })
+        : post.featuredImage;
 
-      const file = await appwriteService.uploadFile(resizedFile);
+      const file =
+        uploadedImg && (await appwriteService.uploadFile(resizedFile));
 
       if (file) {
         appwriteService.deleteFile(post.featuredImage);
