@@ -69,13 +69,15 @@ export default function PostForm({ post }) {
       const resizedFile = await new Promise((resolve, reject) => {
         Resizer.imageFileResizer(
           uploadedImg,
-          8000,
-          8000,
+          1280,
+          720,
           "JPEG",
           50,
           0,
           (resizedImage) => resolve(resizedImage),
-          "file"
+          "file",
+          1280,
+          720
         );
       });
 
@@ -120,7 +122,7 @@ export default function PostForm({ post }) {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="w-[90%] text-center flex flex-col md:flex-row items-center md:items-start gap-24 justify-center bg-bgColor rounded-xl p-2 sm:p-10 text-textColor min-h-[80vh] border border-gray-500 py-6 relative"
+      className="w-[95%] text-center flex flex-col md:flex-row items-center md:items-start gap-24 justify-center bg-bgColor rounded-xl p-2 sm:p-10 text-textColor min-h-[80vh] py-6 relative"
     >
       <div className="md:w-2/3 px-2 text-start">
         <Input
@@ -174,7 +176,7 @@ export default function PostForm({ post }) {
           <Button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            className="w-full"
+            className="w-full bg-gray-400"
           >
             Processing...
           </Button>
@@ -185,7 +187,7 @@ export default function PostForm({ post }) {
             className="w-full"
             onClick={() => setLoader(true)}
           >
-            {post ? "Update" : "Submit"}
+            {post ? "Update" : "Publish"}
           </Button>
         )}
       </div>
