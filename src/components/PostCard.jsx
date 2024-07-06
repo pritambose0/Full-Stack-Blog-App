@@ -15,7 +15,7 @@ function PostCard({ $id, title, featuredImage, $createdAt }) {
   // console.log($id, title, featuredImage);
   return (
     <Link to={`/post/${$id}`} className="flex justify-center">
-      <div className="w-full h-[50vh] md:h-[70vh] bg-secondary rounded-xl text-start overflow-hidden">
+      <div className="w-full min-h-[50vh] md:min-h-[70vh] bg-secondary rounded-xl text-start overflow-hidden">
         <img
           src={imageUrl}
           alt={title}
