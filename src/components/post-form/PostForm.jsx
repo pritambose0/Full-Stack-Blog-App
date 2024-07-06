@@ -40,7 +40,9 @@ export default function PostForm({ post }) {
               50,
               0,
               (resizedImage) => resolve(resizedImage),
-              "file"
+              "file",
+              1280,
+              720
             );
           })
         : post.featuredImage;
