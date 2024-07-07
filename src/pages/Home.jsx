@@ -15,10 +15,10 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchPosts());
-  //   setLoader(false);
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchPosts());
+    setLoader(false);
+  }, [dispatch]);
 
   // console.log(posts);
   const posts = useSelector((state) => state.post.posts);
