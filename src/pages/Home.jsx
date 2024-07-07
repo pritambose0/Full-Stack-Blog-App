@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, PostCard } from "../components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchPosts } from "../store/postSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 
 function Home() {
   const userStatus = useSelector((state) => state.auth.status);
   const user = useSelector((state) => state.auth.userData);
-  // const [posts, setPosts] = useState([]);
-  // console.log(userStatus.name);
-  const [loader, setLoader] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPosts());
-    setLoader(false);
-  }, [dispatch]);
 
   // console.log(posts);
   const posts = useSelector((state) => state.post.posts);
@@ -32,13 +22,7 @@ function Home() {
     );
   return userStatus ? (
     <>
-      {loader ? (
-        <div className="w-full min-h-[80vh] text-center flex items-center justify-center text-textColor">
-          <h1 className="text-xl p-10 font-bold inline-block  transition duration-200">
-            Loading...
-          </h1>
-        </div>
-      ) : error ? (
+      {error ? (
         <div className="w-full min-h-[80vh] text-center flex items-center justify-center text-red-500">
           <h1 className="text-2xl p-10 font-bold inline-block  transition duration-200">
             {`Error: ${error}`}
@@ -75,15 +59,6 @@ function Home() {
               ))}
             </div>
           </div>
-
-          {!posts && (
-            <h1 className="text-2xl p-10 font-bold flex flex-col gap-3 mt-5">
-              No posts available{" "}
-              <span className="text-textHover inline-block">
-                <Link to="/add-post">Create post</Link>
-              </span>
-            </h1>
-          )}
         </div>
       )}
     </>

@@ -70,7 +70,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/post/:slug",
-        element: <Post />,
+        element: (
+          <AuthLayout authentication>
+            {" "}
+            <Post />
+          </AuthLayout>
+        ),
       },
       {
         path: "*",

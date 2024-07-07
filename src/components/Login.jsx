@@ -40,7 +40,7 @@ function Login() {
           Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
-            className="font-semibold text-sm font-Poppins text-textHover"
+            className="font-semibold text-sm font-Poppins text-primary"
           >
             Sign Up
           </Link>

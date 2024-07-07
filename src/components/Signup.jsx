@@ -39,7 +39,7 @@ function Signup() {
         </h2>
         <p className="mt-2 mb-5 text-center text-sm">
           Already have an account?&nbsp;
-          <Link to="/login" className="font-medium text-sm text-textHover">
+          <Link to="/login" className="font-medium text-sm text-primary">
             Sign In
           </Link>
         </p>

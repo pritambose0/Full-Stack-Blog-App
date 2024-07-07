@@ -27,7 +27,7 @@ function App() {
   }, [dispatch]);
 
   return !loading ? (
-    <div className="flex flex-wrap content-between bg-bgLight w-full">
+    <div className="flex flex-wrap content-between bg-bgColor w-full">
       <div className="w-full">
         <Header />
         <main>
