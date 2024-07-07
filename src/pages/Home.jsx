@@ -49,7 +49,7 @@ function Home() {
               <h1 className="text-3xl lg:text-4xl font-bold ">{`Welcome ${user.name}`}</h1>
 
               <input
-                type="search"
+                type="text"
                 className="bg-gray-800 p-3 w-full md:w-[22rem] lg:w-[25rem] h-[3.7rem] rounded-md  hover:bg-bgColor transition-colors duration-300 pl-5 border border-gray-500 text-white placeholder-white"
                 placeholder="Search..."
                 value={searchTerm}
