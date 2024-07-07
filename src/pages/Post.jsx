@@ -19,6 +19,7 @@ function Post() {
   // console.log(post);
   useEffect(() => {
     dispatch(fetchPosts());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   if (error) {
