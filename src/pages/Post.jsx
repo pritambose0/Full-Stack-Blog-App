@@ -43,23 +43,23 @@ function Post() {
   };
 
   return post ? (
-    <div className="mx-5 sm:mx-8 lg:mx-16">
-      <div className="min-h-[80vh] flex flex-col items-center justify-center text-textColor">
+    <div className="mx-5 sm:mx-8 lg:mx-16 min-h-screen">
+      <div className="flex flex-col items-center justify-center text-textColor">
         <div className="mb-10 text-start w-full">
-          <h1 className="text-3xl font-semibold">{post.title}</h1>
+          <h1 className="text-2xl font-semibold">{post.title}</h1>
         </div>
         <div className="w-full items-center flex justify-center mb-4 rounded-xl">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
-            className="rounded-lg object-center object-cover h-full md:h-[80vh] w-full"
+            className="rounded-md object-center object-cover aspect-video w-full"
           />
         </div>
 
         <div className="browser-css w-full">{parse(post.content)}</div>
 
         {isAuthor && (
-          <div className="w-full text-start my-10">
+          <div className="w-full text-start mt-10">
             <Link to={`/edit-post/${post.$id}`}>
               <Button bgColor="bg-primary hover:bg-blue-800" className="mr-3">
                 Edit

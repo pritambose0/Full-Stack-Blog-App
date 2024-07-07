@@ -15,13 +15,13 @@ function PostCard({ $id, title, featuredImage, $createdAt }) {
   // console.log($id, title, featuredImage);
   return (
     <Link to={`/post/${$id}`} className="flex justify-center">
-      <div className="w-full min-h-[50vh] md:min-h-[70vh] bg-secondary rounded-xl text-start overflow-hidden">
+      <div className="w-full bg-secondary rounded-xl text-start overflow-hidden">
         <img
           src={imageUrl}
           alt={title}
-          className="object-cover h-[50%] w-full rounded-t-xl hover:scale-105 transition duration-300"
+          className="object-cover aspect-video w-full rounded-t-xl hover:scale-105 transition duration-300"
         />
-        <div className="flex flex-col justify-center px-5 sm:px-8 h-[50%] py-0 md:py-5 gap-4">
+        <div className="flex flex-col justify-center px-5 sm:px-8 my-10 sm:my-14 md:my-10 py-0 md:py-5 gap-4">
           <div className="flex items-center gap-2">
             <FontAwesomeIcon
               icon={faCalendar}

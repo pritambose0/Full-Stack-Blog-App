@@ -22,7 +22,7 @@ function Home() {
   // console.log(posts);
   const posts = useSelector((state) => state.post.posts);
   const error = useSelector((state) => state.error);
-  console.log(posts);
+  // console.log(posts);
   return userStatus ? (
     <>
       {loader ? (
