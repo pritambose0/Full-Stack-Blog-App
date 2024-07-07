@@ -20,16 +20,15 @@ function Home() {
     setLoader(false);
   }, [dispatch]);
 
-  // console.log(posts);
   const posts = useSelector((state) => state.post.posts);
   const error = useSelector((state) => state.error);
-  // console.log(posts);
 
   const filteredPosts =
     posts &&
     posts.filter((post) =>
       post.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
     );
+
   return userStatus ? (
     <>
       {loader ? (
@@ -75,15 +74,6 @@ function Home() {
               ))}
             </div>
           </div>
-
-          {!posts && (
-            <h1 className="text-2xl p-10 font-bold flex flex-col gap-3 mt-5">
-              No posts available{" "}
-              <span className="text-textHover inline-block">
-                <Link to="/add-post">Create post</Link>
-              </span>
-            </h1>
-          )}
         </div>
       )}
     </>
