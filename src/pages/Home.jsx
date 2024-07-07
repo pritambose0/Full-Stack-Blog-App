@@ -12,6 +12,7 @@ function Home() {
   // const [posts, setPosts] = useState([]);
   // console.log(userStatus.name);
   const [loader, setLoader] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,6 +24,10 @@ function Home() {
   const posts = useSelector((state) => state.post.posts);
   const error = useSelector((state) => state.error);
   // console.log(posts);
+
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
+  );
   return userStatus ? (
     <>
       {loader ? (
@@ -47,6 +52,10 @@ function Home() {
                 type="search"
                 className="bg-gray-800 p-3 w-full md:w-[22rem] lg:w-[25rem] h-[3.7rem] rounded-md  hover:bg-bgColor transition-colors duration-300 pl-5 border border-gray-500 text-white placeholder-white"
                 placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
               />
               <FontAwesomeIcon
                 icon={faSearch}
@@ -57,7 +66,7 @@ function Home() {
 
           <div className="mx-5 sm:mx-8 lg:mx-16">
             <div className="grid content-center md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
-              {posts?.map((post) => (
+              {filteredPosts?.map((post) => (
                 <div key={post.$id}>
                   <PostCard {...post} />
                 </div>
