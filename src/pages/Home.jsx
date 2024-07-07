@@ -25,9 +25,11 @@ function Home() {
   const error = useSelector((state) => state.error);
   // console.log(posts);
 
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
-  );
+  const filteredPosts =
+    posts &&
+    posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
+    );
   return userStatus ? (
     <>
       {loader ? (
