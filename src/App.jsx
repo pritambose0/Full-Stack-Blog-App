@@ -4,7 +4,7 @@ import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Header, Footer } from "./components/index";
 import { Outlet } from "react-router-dom";
-// import { fetchPosts } from "./store/postSlice";
+import { fetchPosts } from "./store/postSlice";
 // import appwriteService from "./appwrite/config";
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(fetchPosts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return !loading ? (
     <div className="flex flex-wrap content-between bg-bgColor w-full">
