@@ -11,7 +11,7 @@ function Home() {
   const user = useSelector((state) => state.auth.userData);
   // const [posts, setPosts] = useState([]);
   // console.log(userStatus.name);
-  // const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
