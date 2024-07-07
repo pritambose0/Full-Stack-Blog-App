@@ -45,9 +45,9 @@ function Post() {
 
   return post ? (
     <div className="mx-5 sm:mx-8 lg:mx-16 min-h-screen">
-      <div className="flex flex-col items-center justify-center text-textColor">
-        <div className="mb-10 text-start w-full mt-5">
-          <h1 className="text-2xl font-semibold">{post.title}</h1>
+      <div className="flex flex-col items-center justify-center text-textColor mt-5 md:my-10">
+        <div className="mb-10 text-start w-full">
+          <h1 className="text-2xl md:text-3xl font-semibold">{post.title}</h1>
         </div>
         <div className="w-full items-center flex justify-center mb-4 rounded-xl">
           <img
