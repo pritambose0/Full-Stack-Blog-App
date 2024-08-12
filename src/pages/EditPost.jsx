@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function EditPost() {
   const { slug } = useParams();
   const posts = useSelector((state) => state.post.posts);
-  const postSlug = posts.find((post) => post.$id === slug);
+  const postSlug = posts?.find((post) => post.$id === slug);
   // console.log(posta);
 
   return postSlug ? (
