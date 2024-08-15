@@ -13,9 +13,9 @@ function Post() {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const posts = useSelector((state) => state.post.posts);
-  const post = posts.find((post) => post.$id === slug);
+  const post = posts?.find((post) => post.$id === slug);
   const isAuthor = post && userData ? post.userId === userData.$id : false;
-  const error = useSelector((state) => state.error);
+  const error = useSelector((state) => state.post.error);
   // console.log(post);
   useEffect(() => {
     dispatch(fetchPosts());
