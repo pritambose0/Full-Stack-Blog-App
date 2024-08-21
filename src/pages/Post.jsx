@@ -47,7 +47,7 @@ function Post() {
     <div className="mx-5 sm:mx-8 lg:mx-16 min-h-screen">
       <div className="flex flex-col items-center justify-center text-textColor pt-5 pb-10">
         <div className="mb-10 text-start w-full">
-          <h1 className="text-2xl md:text-3xl font-semibold text-center">
+          <h1 className="text-2xl md:text-3xl font-semibold">
             {post.title}
           </h1>
         </div>
@@ -59,7 +59,7 @@ function Post() {
           />
         </div>
 
-        <div className="browser-css w-full lg:w-[70%] text-center">
+        <div className="browser-css w-full lg:w-[70%]">
           {parse(post.content)}
         </div>
 
