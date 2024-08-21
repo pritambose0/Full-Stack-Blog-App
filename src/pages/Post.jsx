@@ -47,9 +47,11 @@ function Post() {
     <div className="mx-5 sm:mx-8 lg:mx-16 min-h-screen">
       <div className="flex flex-col items-center justify-center text-textColor pt-5 pb-10">
         <div className="mb-10 text-start w-full">
-          <h1 className="text-2xl md:text-3xl font-semibold">{post.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-semibold text-center">
+            {post.title}
+          </h1>
         </div>
-        <div className="w-full items-center flex justify-center mb-4 rounded-xl">
+        <div className="w-full lg:w-[70%] items-center flex justify-center mb-4 rounded-xl">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
@@ -57,7 +59,9 @@ function Post() {
           />
         </div>
 
-        <div className="browser-css w-full">{parse(post.content)}</div>
+        <div className="browser-css w-full lg:w-[70%] text-center">
+          {parse(post.content)}
+        </div>
 
         {isAuthor && (
           <div className="w-full text-start my-10">
